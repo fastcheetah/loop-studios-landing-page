@@ -23,7 +23,8 @@ body {
 nav,
 .showcase,
 .title,
-.items {
+.items,
+.social-icons {
   display: flex;
 }
 
@@ -34,7 +35,6 @@ nav,
 }
 
 .nav {
-  width: 60%;
   justify-content: flex-end;
   gap: 40px;
 }
@@ -44,7 +44,33 @@ nav,
 }
 .navlink p {
   color: var(--White);
+  position: relative;
+  font-family: "alata", sans-serif;
 }
+
+/* hover effect for nav links  */
+
+.navlink p::after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  border-bottom: 4px solid var(--White);
+  left: 0;
+  bottom: -12px;
+  scale: 0;
+  opacity: 0;
+  transition: all 500ms ease-in;
+}
+
+.navlink p:hover::after {
+  opacity: 1;
+  scale: 0.5;
+}
+
+.menu {
+  display: none;
+}
+
 .header {
   width: 100%;
   min-height: 600px;
@@ -53,7 +79,7 @@ nav,
   padding: 60px 100px;
 }
 
-/* hero section styles  */
+/* ******hero section styles*******  */
 .hero-section {
   width: 550px;
   /* height: 300px; */
@@ -95,9 +121,10 @@ nav,
   }
 
   p {
-    font-family: "Josefin Sans", sans-serif;
-    font-weight: 300;
+    font-family: "alata", sans-serif;
+    font-weight: 400;
     line-height: 17px;
+    color: var(--Very-Dark-Gray);
   }
 }
 
@@ -126,6 +153,12 @@ nav,
     font-family: Alata, sans-serif;
     background-color: unset;
     margin-bottom: 50px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    color: var(--White);
+    background-color: var(--Black);
   }
 }
 
@@ -135,10 +168,13 @@ nav,
 }
 
 .figure {
-  width: 256px;
-  height: 450px;
-  margin-bottom: 10px;
   position: relative;
+
+  div {
+    width: 256px;
+    height: 450px;
+    margin-bottom: 10px;
+  }
 
   p {
     text-transform: uppercase;
@@ -154,70 +190,133 @@ nav,
   }
 }
 
-.figure:nth-child(1) {
+.figure:nth-child(1) div {
   background-image: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0),
       rgba(0, 0, 0, 0.13),
       rgba(0, 0, 0, 0.66)
-    ), url("./images/desktop/image-deep-earth.jpg");
+    ),
+    url("./images/desktop/image-deep-earth.jpg");
 }
-.figure:nth-child(2) {
+.figure:nth-child(2) div {
   background-image: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0),
       rgba(0, 0, 0, 0.13),
       rgba(0, 0, 0, 0.66)
-    ), url("./images/desktop/image-night-arcade.jpg");
+    ),
+    url("./images/desktop/image-night-arcade.jpg");
 }
-.figure:nth-child(3) {
+.figure:nth-child(3) div {
   background-image: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0),
       rgba(0, 0, 0, 0.13),
       rgba(0, 0, 0, 0.66)
-    ), url("./images/desktop/image-soccer-team.jpg");
+    ),
+    url("./images/desktop/image-soccer-team.jpg");
 }
-.figure:nth-child(4) {
+.figure:nth-child(4) div {
   background-image: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0),
       rgba(0, 0, 0, 0.13),
       rgba(0, 0, 0, 0.66)
-    ), url("./images/desktop/image-grid.jpg");
+    ),
+    url("./images/desktop/image-grid.jpg");
 }
-.figure:nth-child(5) {
+.figure:nth-child(5) div {
   background-image: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0),
       rgba(0, 0, 0, 0.13),
       rgba(0, 0, 0, 0.66)
-    ), url("./images/desktop/image-from-above.jpg");
+    ),
+    url("./images/desktop/image-from-above.jpg");
 }
-.figure:nth-child(6) {
+.figure:nth-child(6) div {
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.13),
+      rgba(37, 21, 21, 0.66)
+    ),
+    url("./images/desktop/image-pocket-borealis.jpg");
+}
+.figure:nth-child(7) div {
   background-image: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0),
       rgba(0, 0, 0, 0.13),
       rgba(0, 0, 0, 0.66)
-    ), url("./images/desktop/image-pocket-borealis.jpg");
+    ),
+    url("./images/desktop/image-curiosity.jpg");
 }
-.figure:nth-child(7) {
+.figure:nth-child(8) div {
   background-image: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0),
       rgba(0, 0, 0, 0.13),
       rgba(0, 0, 0, 0.66)
-    ), url("./images/desktop/image-curiosity.jpg");
+    ),
+    url("./images/desktop/image-fisheye.jpg");
 }
-.figure:nth-child(8) {
-  background-image: 
-    linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0),
-      rgba(0, 0, 0, 0.13),
-      rgba(0, 0, 0, 0.66)
-    ), url("./images/desktop/image-fisheye.jpg");
+
+.figure div:hover {
+  opacity: 50%;
+}
+.figure:hover > p {
+  color: var(--Black);
+}
+
+/* footer styling */
+.footer {
+  width: 100%;
+  background-color: var(--Black);
+  padding: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.right {
+  color: var(--White);
+
+  p {
+    color: var(--Dark-Gray);
+  }
+}
+
+.left figure,
+.social-icons {
+  margin-bottom: 20px;
+}
+
+.social-icons {
+  gap: 20px;
+  justify-content: flex-end;
+}
+.social-icons figure {
+  position: relative;
+  cursor: pointer;
+}
+.social-icons figure::after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  border-bottom: 2px solid var(--White);
+  left: 0;
+  bottom: -8px;
+  scale: 0;
+  opacity: 0;
+  transition: all 300ms ease-in;
+  border-radius: 3px;
+}
+
+.social-icons figure:hover::after {
+  opacity: 1;
+  scale: 1;
 }
 
 /* attribution styles */
@@ -228,3 +327,141 @@ nav,
 .attribution a {
   color: hsl(228, 45%, 44%);
 }
+
+/* adding media query  */
+
+@media screen and (max-width: 850px) {
+  .menu {
+    display: block;
+  }
+  .navh {
+    display: none;
+  }
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .navf {
+    flex-direction: column;
+    align-items: center;
+  }
+  .social-icons {
+    justify-content: center;
+    margin-top: 50px;
+  }
+  .showcase {
+    flex-direction: column;
+
+    figure {
+      width: 95%;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    div {
+      position: static;
+      text-align: center;
+    }
+  }
+  .header,
+  .footer,
+  .showcase,
+  .creation {
+    padding: 20px;
+  }
+
+  .header {
+    background-image: url("./images/mobile/image-hero.jpg");
+  }
+  
+  /* ******hero section styles*******  */
+  .hero-section {
+    width: 100%;
+  }
+  
+  .hero-section h2 {
+    font-size: 45px;
+  }
+}
+/* @media screen and (max-width: 480px) { */
+/* .figure div { */
+/* max-width: 375px; */
+/* width: 100%; */
+/* height: 250px; */
+/* } */
+/*  */
+/* .figure:nth-child(1) div { */
+/* background-image: linear-gradient( */
+/* 180deg, */
+/* rgba(0, 0, 0, 0), */
+/* rgba(0, 0, 0, 0.13), */
+/* rgba(0, 0, 0, 0.66) */
+/* ), */
+/* url("./images/mobile/image-deep-earth.jpg"); */
+/* } */
+/* .figure:nth-child(2) div { */
+/* background-image: linear-gradient( */
+/* 180deg, */
+/* rgba(0, 0, 0, 0), */
+/* rgba(0, 0, 0, 0.13), */
+/* rgba(0, 0, 0, 0.66) */
+/* ), */
+/* url("./images/mobile/"); */
+/* } */
+/* .figure:nth-child(3) div { */
+/* background-image: linear-gradient( */
+/* 180deg, */
+/* rgba(0, 0, 0, 0), */
+/* rgba(0, 0, 0, 0.13), */
+/* rgba(0, 0, 0, 0.66) */
+/* ), */
+/* url("./images/mobile/image-soccer-team.jpg"); */
+/* } */
+/* .figure:nth-child(4) div { */
+/* background-image: linear-gradient( */
+/* 180deg, */
+/* rgba(0, 0, 0, 0), */
+/* rgba(0, 0, 0, 0.13), */
+/* rgba(0, 0, 0, 0.66) */
+/* ), */
+/* url("./images/mobile/image-grid.jpg"); */
+/* } */
+/* .figure:nth-child(5) div { */
+/* background-image: linear-gradient( */
+/* 180deg, */
+/* rgba(0, 0, 0, 0), */
+/* rgba(0, 0, 0, 0.13), */
+/* rgba(0, 0, 0, 0.66) */
+/* ), */
+/* url("./images/mobile/image-from-above.jpg"); */
+/* } */
+/* .figure:nth-child(6) div { */
+/* background-image: linear-gradient( */
+/* 180deg, */
+/* rgba(0, 0, 0, 0), */
+/* rgba(0, 0, 0, 0.13), */
+/* rgba(37, 21, 21, 0.66) */
+/* ), */
+/* url("./images/mobile/image-pocket-borealis.jpg"); */
+/* } */
+/* .figure:nth-child(7) div { */
+/* background-image: linear-gradient( */
+/* 180deg, */
+/* rgba(0, 0, 0, 0), */
+/* rgba(0, 0, 0, 0.13), */
+/* rgba(0, 0, 0, 0.66) */
+/* ), */
+/* url("./images/mobile/image-curiosity.jpg"); */
+/* } */
+/* .figure:nth-child(8) div { */
+/* background-image: linear-gradient( */
+/* 180deg, */
+/* rgba(0, 0, 0, 0), */
+/* rgba(0, 0, 0, 0.13), */
+/* rgba(0, 0, 0, 0.66) */
+/* ), */
+/* url("./images/mobile/image-fisheye.jpg"); */
+/* } */
+/* } */
